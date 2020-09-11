@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Slab:wght@100;300;400;600;700&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Josefin Slab', serif;
+    height: 100vh;
+}
+
+header{
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    background-color: #393E46;
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+}
+header > #logo{
+    max-width: 150px;
+    height: 150px;
+    position: relative center;
+    flex-grow: 0;
+}
+.slogan{
+    flex: 1 1 0;
+    margin: 0px;
+    padding: 50px 0px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 250%;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+main{
+    padding-top: 150px;
+    padding-left: 12vw;
+    padding-right: 12vw;
+    width: 100vw;
+    height: auto;
+    overflow: auto;
+    background-color: rgba(57,62,70,0.8);
+    color: #ffffff;
+}
+
+label{
+    display: block;
+    font-size: xx-large;
+    text-align: left;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0px;
+}
+
+/*---------------------------------------------------*/
+
+/*---------------------------------------------------*/
+
+footer {
+    position: relative;
+    bottom: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100px;
+    background-color: #393E46;
+    font-family: 'Indie Flower', serif;
+    color: #ffffff;
+}
+
+footer > p {
+    margin: 0px;
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 120%;
+}

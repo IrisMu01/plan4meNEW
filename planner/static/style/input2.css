@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Slab:wght@100;300;400;600;700&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Josefin Slab', serif;
+    height: 100vh;
+}
+
+header{
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    background-color: #393E46;
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+}
+header > #logo{
+    max-width: 150px;
+    height: 150px;
+    position: relative center;
+    flex-grow: 0;
+}
+.slogan{
+    flex: 1 1 0;
+    margin: 0px;
+    padding: 50px 0px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 250%;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+main{
+    padding-top: 150px;
+    padding-left: 12vw;
+    padding-right: 12vw;
+    width: 100vw;
+    height: 125vh;
+    background-color: rgba(57,62,70,0.8);
+    color: #ffffff;
+}
+
+form{
+    height: 100%;
+}
+
+label.prompt{
+    display: block;
+    font-size: xx-large;
+    text-align: left;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0px;
+}
+
+/*---------------------------------------------------*/
+
+#hotel-form.not-done{
+    margin: 3% 0%;
+    width: 100%;
+    height: 90%;
+}
+
+#hotel-form.finished{
+    margin: 3% 0%;
+    width: 100%; 
+    border-bottom: 2px solid #ffffff;
+    height: auto;
+}
+
+#hotel-prompt {
+    display: flex;
+    border-bottom: 1px solid #ffffff;
+}
+
+#hotel-prompt > label{
+    flex-grow: 1;
+}
+
+#hotel-prompt > p {
+    flex-grow: 1;
+    text-align: right;
+    margin: 15px 0px 0px 0px;
+}
+
+#hotels-map{
+    box-sizing: content-box;
+    width: 100%;
+    height: 60%;
+    margin: 5px 0px;
+    background-color: #ababab;
+}
+
+.hotel-info-window > p{
+    color: #000000;
+    margin: 0px 0px 5px 0px;
+}
+
+.hotel-info-window > h6{
+    color: #000000;
+}
+
+.hotel-info-window > img{
+    max-width: 170px;
+}
+
+#hotels-selection{
+    box-sizing: border-box;
+    border-top: 1px solid #ffffff;
+    width: 100%;
+    height: 30%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px 0px;
+}
+
+#all-selected-hotels {
+    height: 100%;
+    overflow-y: scroll;
+    padding-top: 10px;
+}
+
+#review-hotel-info{
+    padding: 0px;
+}
+
+.selected-hotel{
+    box-sizing: border-box;
+    margin: 0px;    
+    border-radius: 3px;
+    background: #3b3b3b;
+    padding: 7.5px 10px 7.5px;
+    overflow-x: scroll;
+    margin-bottom: 10px;
+}
+
+.selected-hotel > p {
+    margin: 0px;
+    font-weight: 600;
+} 
+
+input.selected-hotel-info{
+    width: 100%;
+}
+
+.selected-hotel-dates{
+    display: flex;
+    margin-top: 5px;
+}
+
+.selected-hotel-dates > p {
+    margin: 0px;
+}
+
+.selected-hotel-img-link{
+    display: none;
+}
+
+.selected-hotel-add {
+    margin-right: 10px;
+}
+
+#hotel-final-confirm {
+    height: 100%;
+    padding: 0px 5px;
+    overflow-y: hidden;
+}
+
+#hotel-final-confirm > button {
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.selected-hotel-in, .selected-hotel-out {
+    margin: 0px 10px;
+}
+
+/*---------------------------------------------------*/
+
+#poi-choices{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+label.poi-choices{
+    font-size: large;
+    display: inline;
+    margin-left: 5px;
+}
+
+#poi-convenience{
+    display: flex;
+}
+
+#poi-convenience > button{
+    flex: 1;
+    margin: 0% 5%;
+}
+
+/*---------------------------------------------------*/
+
+#food{
+    margin: 2.5% 0%;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 2.5%
+}
+
+label.prompt2{
+    font-size: x-large;
+    margin: 0px;
+}
+
+#show-food-price{
+    display: inline-block;
+    margin: 0px;
+    font-size: x-large;
+}
+
+#booze-check{
+    height: 20px;
+    width: 20px;
+}
+
+#all-done{
+    margin: 0% 10% 5% 10%;
+    width: 80%;
+}
+
+/*---------------------------------------------------*/
+
+footer {
+    position: relative;
+    bottom: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100px;
+    background-color: #393E46;
+    font-family: 'Indie Flower', serif;
+    color: #ffffff;
+}
+
+footer > p {
+    margin: 0px;
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 120%;
+}

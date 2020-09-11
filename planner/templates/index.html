@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Plan4Me - Travel Planning Made Simple</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/index.css' %}">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="{% static 'javascript/index.js' %}"></script>
+    </head>
+
+    <body>
+        <header id="site-title">
+            <h2 id="slogan1" class="slogan">Travel planning</h2>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+        </header>
+
+        <main>
+            <section id="descriptions">
+                <span id="step1" class="steps">
+                    <div id="layer1" class="layers">
+                        <p>Step 1<br/><br/><br/>Choose your city and dates</p>
+                    </div>
+                </span>
+                <span id="step2" class="steps">
+                    <div id="layer2" class="layers">
+                        <p>Step 2<br/><br/><br/>Pick your hotels</p>
+                    </div>
+                </span>
+                <span id="step3" class="steps">
+                    <div id="layer3" class="layers">
+                        <p>Step 3<br/><br/><br/>Specify your preferences</p>
+                    </div>
+                </span>
+                <span id="step4" class="steps">
+                    <div id="layer4" class="layers">
+                        <p>Step 4<br/><br/><br/>Plan made for you, in just 10 seconds!</p>
+                    </div>
+                </span>
+            </section>
+            <section id="user-start">
+                <a href="input1/"><button id="start-button" type="button">Start Planning</button></a>
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer<br/>uwu</p>
+        </footer>
+    </body>
+
+</html>

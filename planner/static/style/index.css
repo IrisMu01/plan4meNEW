@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Slab:wght@100;300;400;600;700&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Josefin Slab', serif;
+}
+
+header{
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    background-color: #393E46;
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+}
+header > #logo{
+    max-width: 150px;
+    height: 150px;
+    position: relative center;
+    flex-grow: 0;
+}
+.slogan{
+    flex: 1 1 0;
+    margin: 0px;
+    padding: 50px 0px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 250%;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+main{
+    margin: 0px;
+    padding: 150px 0px 0px 0px;
+    width: 100vw;
+    height: 660px;
+    background-color: rgba(57,62,70,0.8);
+}
+
+#descriptions{
+    height: 480px;
+    margin: 40px 12vw;
+    display: flex;
+    flex-direction: row;
+}
+.steps{
+    display: inline-block;
+    flex: 1 1 0;
+    height: 480px;
+    border: 5px solid rgb(96, 101, 108);
+    border-top: 0px;
+    border-bottom: 1px;
+    border-radius: 7px;
+}
+
+#step1{
+    border-left: 0px;
+    background: url('../images/index1.jpg');
+    background-size: cover;
+}
+#step2{
+    background: url('../images/index2.jpg');
+    background-size: cover;
+}
+#step3{
+    background: url('../images/index3.jpg');
+    background-size: cover;
+}
+#step4{
+    border-right: 0px;
+    background: url('../images/index4.jpg');
+    background-size: cover;
+}
+
+.layers{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 3px;
+}
+.layers > p{
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0px;
+    color: #ffffff;
+    padding: 180px 10%;
+    text-align: center;
+    font-size: 150%;
+}
+
+#user-start{
+    margin: 0px;
+    height: 100px;
+}
+
+#user-start > a{
+    text-decoration-line: none;
+}
+
+#start-button{
+    display: block;
+    height: 50%;
+    width: 30%;
+    margin: 25px 35%;
+    padding: 11px 30px;
+    border: 0px;
+    border-radius: 30px;
+    align-items: center;
+    background-color: #393E46;
+    font-family: 'Josefin Slab', serif;
+    font-weight: 900;
+    font-size: 150%;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
+footer {
+    margin: 0px;
+    width: 100vw;
+    height: 100px;
+    background-color: #393E46;
+    font-family: 'Indie Flower', serif;
+    color: #ffffff;
+}
+
+footer > p {
+    margin: 0px;
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 120%;
+}

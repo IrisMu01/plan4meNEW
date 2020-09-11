@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Plan4Me Plan Editor - Travel Planning Made Simple</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style/profile.css' %}">
+
+        <!--bootstrap, jquery and such-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!--custom scripts-->
+        <script src="{% static 'javascript/profile-ui.js' %}"></script>
+        <script src="{% static 'javascript/profile-form.js' %}"></script>
+        
+
+    </head>
+
+    <body>
+        <header id="site-title">
+            <h2 id="slogan1" class="slogan">Travel planning</h2>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+        </header>
+
+        <main>
+
+            <h4>Hi {{ username }}</h4>
+            <div id='plans-ui' class='row'>
+                <span id='select-multiple-span' class='col-md-5'>
+                    <input type=checkbox id='select-multiple'>
+                    <label for='select-multiple'>Select multiple</label>
+                </span>
+                <span id='edit-plan-span' class='col-md-2'>
+                    <button id='edit-plan-button' class='btn btn-success plans-ui-btn' type='button'>
+                        Edit
+                    </button>
+                </span>
+                <span id='change-duration-span' class='col-md-3'>
+                    <button id='change-duration-button' class='btn btn-info plans-ui-btn' type='button'>
+                        Change dates
+                    </button>
+                </span>
+                <span id='delete-plan-span' class='col-md-2'>
+                    <button id='delete-plan-button' class='btn btn-danger plans-ui-btn' type='button'>
+                        Delete
+                    </button>
+                </span>
+            </div>
+            
+            <div id='plans-display' class='row'>
+                {% for each_plan in plans %}
+                <article class='col-md-4 one-plan'>
+                    <div class='one-plan-overlay'>
+                        <h5>Select</h5>
+                    </div>
+                    <p class='plan-id' hidden>{{ each_plan.id }}</p>
+                    <h5>Trip to {{ each_plan.city }}</h5>
+                    <p class='date-from-p'>From: {{ each_plan.date_from}} </p>
+                    <p class='date-to-p'>To: {{ each_plan.date_to }} </p>
+                </article>
+                {% endfor %}
+                <article class='col-md-4' id='new-plan-prompt'>
+                    <h3>+</h3>
+                    <h5>Add new plan</h5>
+                </article>
+            </div>
+
+            <form action='' method='post' ajax-url="{% url 'profile_user_action' %}">
+                {% csrf_token %}
+                <button id="apply-changes" class="btn btn-success" type="button">Apply changes</button>
+                <a href=""><button id="revert-changes" class="btn btn-dark" type="button">Revert</button></a>
+            </form>
+            
+        </main>
+
+        <footer>
+            <p>This is a footer<br/>uwu</p>
+        </footer>
+
+    </body>
+
+</html>

@@ -1,0 +1,15 @@
+#title{
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 70px;
+}
+
+#logged-out-info{
+    margin: 70px 0px;
+}
+
+#logged-out-info > a{
+    text-align: center;
+    font-size: 150%;
+    color: #ffffff;
+}

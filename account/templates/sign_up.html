@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Plan4Me Plan Editor - Travel Planning Made Simple</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style/sign_up.css' %}">
+
+        <!--bootstrap, jquery and such-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+        <header id="site-title">
+            <h2 id="slogan1" class="slogan">Travel planning</h2>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+        </header>
+
+        <main>
+            <h4 id='title'>User Registration</h4>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <div id='username' class='field'>
+                    <label id='username-label'>{{ signup_form.username.label }}</label>
+                    {{ signup_form.username.errors }}
+                    {{ signup_form.username }}
+                </div>
+
+                <div id='password1-field' class='field'>
+                    <label id='password1-label'>{{ signup_form.password1.label }}</label>
+                    {{ signup_form.password1.errors }}
+                    {{ signup_form.password1 }}
+                </div>
+
+                <div id='password2-field' class='field'>
+                    <label id='password2-label'>{{ signup_form.password2.label }}</label>
+                    {{ signup_form.password2.errors }}
+                    {{ signup_form.password2 }}
+                </div>
+
+                <input type="submit" value="sign up">
+            </form>
+
+            <section id='demo'>
+                <p>{{ demo }}</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>This is a footer<br/>uwu</p>
+        </footer>
+    </body>
+
+</html>

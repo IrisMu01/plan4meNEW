@@ -1,0 +1,31 @@
+#title{
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 70px;
+}
+
+p{
+    text-align: center;
+}
+
+table {
+    margin: 0px auto 50px;
+}
+
+td > label {
+    margin-right: 5px;
+}
+
+td > input {
+    font-size: large;
+    font-family: 'Josefin Slab', serif;
+}
+
+input[type="submit"] {
+    padding: 5px 0px;
+    font-family: 'Josefin Slab', serif;
+    font-size: large;
+    width: 20%;
+    box-sizing: content-box;
+    margin: 0px 40%;
+}

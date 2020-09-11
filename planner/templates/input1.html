@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Plan4Me - Planning Your Trip</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/input1.css' %}">
+
+        <!--bootstrap, jquery and such-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!--api & ui-->
+        <script src="https://maps.googleapis.com/maps/api/js?key={{key}}&libraries=places"></script>
+        <script id="custom" src="{% static 'javascript/input1.js' %}"></script>
+
+    </head>
+
+    <body>
+
+        <header id="site-title">
+            <h2 id="slogan1" class="slogan">Travel planning</h2>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+        </header>
+
+        <main>
+            <form action='/planner/input2/' method='post'>
+                {% csrf_token %}
+                <section id='city-prompt'>
+                    {{ form.city_name.label_tag}}
+                    {{ form.city_name.errors }}
+                    <div id='city-entry'>
+                        {{ form.city_name }}
+                        <button class="confirm" id="city-name-confirm" type="button">></button>
+                    </div>
+                    {{ form.coordinates }}
+                </section>
+
+                <section id='date-prompt'>
+                    {{ form.date_from.label_tag}}
+                    {{ form.date_from.errors }}
+                    {{ form.date_to.errors }}
+                    <div id='date-entry'>
+                        <p>from</p>
+                        {{ form.date_from }}
+                        <p>to</p>
+                        {{ form.date_to }}
+                        <button class='confirm' id='date-confirm' type='button'>></button>
+                    </div>
+                    <div id='date-invalid'>
+                        <p id='date-invalid-msg'>Invalid date entry</p>
+                    </div>
+                </section>
+
+                <input id='final-submit' type='submit' value='Confirm'>
+            </form>
+
+        </main>
+
+        <footer>
+            <p>This is a footer<br/>uwu</p>
+        </footer>
+
+    </body>
+
+</html>

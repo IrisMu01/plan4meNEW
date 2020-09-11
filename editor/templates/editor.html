@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Plan4Me Plan Editor - Travel Planning Made Simple</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/editor.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style/common.css' %}">
+    </head>
+
+    <body>
+        <header id="site-title">
+            <h2 id="slogan1" class="slogan">Travel planning</h2>
+            <img id="logo" src="{% static 'images/logo.png' %}">
+            <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+        </header>
+
+        <main>
+            <div id='test-username'>
+                <h2>{{ username }}'s plan to {{ big_plan.city }}</h2>
+                <p>from {{ big_plan.date_from }} to {{ big_plan.date_to }}</p>
+                <br/><br/><br/>
+            </div>
+            <div id='test'>
+                {% for each in small_plans %}
+                <h4>{{ each.date }}</h4>
+                <p>Theme: {{ each.theme }}</p>
+                <p>Foods: {{ each.foods }}</p>
+                <p>Places: {{ each.places }}</p>
+                <p>Arrangement: {{ each.arrangement }}</p>
+                <p>Accomodation: {{ each.sleeping_place }}</p>
+                <!--make the p tags containing foods, places, arrangement and accomodation hidden-->
+                <!--then in a separate script (editor-content.js), process the texts in p:-->
+                <!--parse into json -> create html with appropriate variable values substituted in -> jquery apend -->
+                <br/>
+                {% endfor %}
+            </div>
+
+            <a href="{% url 'logout' %}">
+                <button type="button">Delete this later, but click here to logout</button>
+            </a>
+        </main>
+
+        <footer>
+            <p>This is a footer<br/>uwu</p>
+        </footer>
+    </body>
+
+</html>

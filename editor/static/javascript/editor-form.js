@@ -1,0 +1,1 @@
+/* communication between the front-end and back-end using ajax */

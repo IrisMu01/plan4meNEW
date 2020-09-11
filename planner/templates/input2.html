@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Plan4Me - Planning Your Trip</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/input2.css' %}">
+
+        <!--bootstrap, jquery and such-->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!--form data from the input1 page; gives the google maps callback as well-->
+        <script id="form-data">
+            var city = "{{place}}";
+            var startDate = "{{startDate}}";
+            var endDate = "{{endDate}}";
+            var strCoord = "{{coordinates}}";
+            var cleanStrCoord = strCoord.replace(/&quot;/g, '"');
+            var coordinates = JSON.parse(cleanStrCoord);
+            var map;
+
+            function initMap(){
+                map = new google.maps.Map(document.getElementById('hotels-map'), {
+                    center: coordinates,
+                    zoom: 13
+                });
+            }
+        </script>
+
+        <!--api & ui-->
+        <script src='https://maps.googleapis.com/maps/api/js?key={{key}}&libraries=places&callback=initMap' defer></script>
+        <script id='custom' src="{% static 'javascript/input2.js' %}"></script>
+        <script src="{% static 'javascript/input2b.js' %}"></script>
+
+</head>
+
+<body>
+    <header id="site-title">
+        <h2 id="slogan1" class="slogan">Travel planning</h2>
+        <img id="logo" src="{% static 'images/logo.png' %}">
+        <h2 id="slogan2" class="slogan"> made SIMPLE.</h2>
+    </header>
+
+    <main>
+        <form action='/planner/result/' method='post'>
+            {% csrf_token %}
+
+            <!--fields from input1-->
+            {{ form2.city_name }}
+            {{ form2.date_from }}
+            {{ form2.date_to }}
+            {{ form2.coordinates }}
+
+            <section id='hotel-form' class='not-done'>
+                <div id='hotel-prompt'>
+                    <label class='prompt' id='hotel-label'>Plan Your Accomodation:</label>
+                    <p id='hotel-note'>(This site doesn't automatically book your chosen hotels)</p>
+                </div>
+                <div id='hotels-map'></div>
+                <div id='hotels-selection' class='row'>
+                    <div id='all-selected-hotels' class='col-md-10'>
+                        <h5>Your planned accomodations will be shown here:</h5>
+                    </div>
+                    <div id='hotel-final-confirm' class='col-md-2'>
+                        <button id='add-custom-entry' type='button'>Add Custom Entry</button>
+                        <button id='hotel-all-done' type='button'>All Done</button>
+                    </div>
+                </div>
+                {{ form2.hotels }}
+            </section>
+            
+            <section id='poi'>
+                <!--a list of checkboxes to indicate which places the user might be interested in-->
+                <label class='prompt' id='poi-prompt'>Check the places you'd be interested in exploring:</label>
+                {{ form2.pois }}
+                <div id='poi-convenience'>
+                    <button id='poi-all' type='button'>Select all</button>
+                    <button id='poi-none' type='button'>Select none</button>
+                    <button class='btn btn-success' id='poi-done' type='button'>All good</button>
+                </div>
+            </section>
+
+            <section id='food'>
+                <!--price range & whether the user chooses to drink-->
+                <label class='prompt2' id='food-price-prompt' for='food-price'>What's your highest acceptable level of prices?</label>
+                <input type='range' id='food-price' min='1' max='4'>
+                <p id='show-food-price'>$$$</p>
+                {{ form2.max_price }}
+                <br/>
+                <label class='prompt2' for='booze-check' id='booze-check-prompt'>Check if you are planning to consume alcohol</label>
+                {{ form2.booze_check }}
+            </section>
+
+            <input class='btn btn-success' id='all-done' type='submit' value='All good'>
+        </form>
+        
+    </main>
+
+    <footer>
+        <p>This is a footer<br/>uwu</p>
+    </footer>
+</body>
